@@ -1,0 +1,74 @@
+
+print("================================")
+print("       CANTEEN BILLING SYSTEM")
+print("================================")
+
+print("\nMENU")
+print("1. Burger       - Rs. 300")
+print("2. Pizza        - Rs. 500")
+print("3. Sandwich     - Rs. 200")
+print("4. Juice        - Rs. 100")
+print("0. Checkout")
+
+subtotal = 0
+total_quantity = 0
+
+while True:
+    choice = int(input("\nSelect an item (0 to checkout): "))
+
+    if choice == 0:
+        break
+
+    elif choice == 1:
+        price = 300
+        item = "Burger"
+
+    elif choice == 2:
+        price = 500
+        item = "Pizza"
+
+    elif choice == 3:
+        price = 200
+        item = "Sandwich"
+
+    elif choice == 4:
+        price = 100
+        item = "Juice"
+
+    else:
+        print("Invalid choice! Please select 0 to 4.")
+        continue
+
+    quantity = int(input("Enter quantity: "))
+
+    if quantity <= 0:
+        print("Invalid quantity! Try again.")
+        continue
+
+    amount = price * quantity
+    subtotal = subtotal + amount
+    total_quantity = total_quantity + quantity
+
+    print(item, "x", quantity, "=", amount)
+    print("Current subtotal: Rs.", subtotal)
+
+print("\n================================")
+print("            FINAL BILL")
+print("================================")
+
+print("Total quantity:", total_quantity)
+print("Subtotal: Rs.", subtotal)
+
+if subtotal >= 1000:
+    discount = subtotal * 10 / 100
+    print("Discount (10%): Rs.", discount)
+else:
+    discount = 0
+    print("Discount: Rs. 0")
+
+final_bill = subtotal - discount
+
+print("--------------------------------")
+print("Final Bill: Rs.", final_bill)
+print("Thank you for visiting!")
+print("================================")
